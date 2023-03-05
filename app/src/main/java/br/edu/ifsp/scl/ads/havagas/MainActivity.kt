@@ -14,11 +14,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(activityMainBinding.root)
 
+        cellPhoneController()
+        formacaoSpinnerController()
+    }
 
-        activityMainBinding.cellNumberSw.setOnCheckedChangeListener { buttonView, isChecked ->
-            activityMainBinding.cellNumberPt.visibility = (if (isChecked) View.VISIBLE else View.GONE);
-        }
-
+    private fun formacaoSpinnerController() {
         activityMainBinding.formacaoSp.onItemSelectedListener =
             object : OnItemSelectedListener{
                 override fun onItemSelected(
@@ -27,18 +27,22 @@ class MainActivity : AppCompatActivity() {
                     position: Int,
                     id: Long
                 ) {
-                    if(position == 0 || position == 1){
-                        activityMainBinding.funMedLL.visibility = View.VISIBLE
-                        activityMainBinding.graEspLL.visibility = View.GONE
-                        activityMainBinding.mesDouLL.visibility = View.GONE
-                    } else if(position == 2 || position == 3){
-                        activityMainBinding.funMedLL.visibility = View.GONE
-                        activityMainBinding.graEspLL.visibility = View.VISIBLE
-                        activityMainBinding.mesDouLL.visibility = View.GONE
-                    } else{
-                        activityMainBinding.funMedLL.visibility = View.GONE
-                        activityMainBinding.graEspLL.visibility = View.VISIBLE
-                        activityMainBinding.mesDouLL.visibility = View.VISIBLE
+                    when (position) {
+                        0, 1 -> {
+                            activityMainBinding.funMedLL.visibility = View.VISIBLE
+                            activityMainBinding.graEspLL.visibility = View.GONE
+                            activityMainBinding.mesDouLL.visibility = View.GONE
+                        }
+                        2, 3 -> {
+                            activityMainBinding.funMedLL.visibility = View.GONE
+                            activityMainBinding.graEspLL.visibility = View.VISIBLE
+                            activityMainBinding.mesDouLL.visibility = View.GONE
+                        }
+                        else -> {
+                            activityMainBinding.funMedLL.visibility = View.GONE
+                            activityMainBinding.graEspLL.visibility = View.VISIBLE
+                            activityMainBinding.mesDouLL.visibility = View.VISIBLE
+                        }
                     }
 
                 }
@@ -47,5 +51,11 @@ class MainActivity : AppCompatActivity() {
                     //NSA
                 }
             }
+    }
+
+    private fun cellPhoneController(){
+        activityMainBinding.cellNumberSw.setOnCheckedChangeListener { buttonView, isChecked ->
+            activityMainBinding.cellNumberPt.visibility = (if (isChecked) View.VISIBLE else View.GONE);
+        }
     }
 }
