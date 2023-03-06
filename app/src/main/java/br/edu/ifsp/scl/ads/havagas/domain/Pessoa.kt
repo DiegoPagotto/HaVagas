@@ -10,6 +10,7 @@ interface Pessoa {
     val celular : String?
     val sexo: Sexo
     val dataNasc: LocalDate
+    val vagasInteresse : String
 }
 
 class FunMed(
@@ -20,10 +21,21 @@ class FunMed(
     override val celular: String?,
     override val sexo: Sexo,
     override val dataNasc: LocalDate,
+    override val vagasInteresse : String,
     val anoFormatura: Int
 ) : Pessoa{
     override fun toString(): String {
-        return "FunMed(nome='$nome', email='$email', telefone='$telefone', tipoFone=$tipoFone, celular=$celular, sexo=$sexo, dataNasc=$dataNasc, anoFormatura=$anoFormatura)"
+        val sb = java.lang.StringBuilder()
+        sb.append("Nome: $nome\n")
+        sb.append("Email: $email\n")
+        sb.append("Telefone: $telefone ($tipoFone)\n")
+        sb.append("Celular: $celular\n")
+        sb.append("Sexo: $sexo\n")
+        sb.append("Nascimento: $dataNasc\n")
+        sb.append("Ano Formatura: $anoFormatura\n")
+        sb.append("Vagas de Interesse: $vagasInteresse\n")
+
+        return sb.toString()
     }
 }
 
@@ -35,11 +47,23 @@ class GraEsp(
     override val celular: String?,
     override val sexo: Sexo,
     override val dataNasc: LocalDate,
+    override val vagasInteresse : String,
     val anoConclusao: Int,
     val instituicao: String
 ) : Pessoa{
     override fun toString(): String {
-        return "GraEsp(nome='$nome', email='$email', telefone='$telefone', tipoFone=$tipoFone, celular=$celular, sexo=$sexo, dataNasc=$dataNasc, anoConclusao=$anoConclusao, instituicao='$instituicao')"
+        val sb = java.lang.StringBuilder()
+        sb.append("Nome: $nome \n")
+        sb.append("Email: $email\n")
+        sb.append("Telefone: $telefone ($tipoFone)\n")
+        sb.append("Celular: $celular\n")
+        sb.append("Sexo: $sexo\n")
+        sb.append("Nascimento: $dataNasc\n")
+        sb.append("Ano Conclusão: $anoConclusao\n")
+        sb.append("Instituição: $instituicao\n")
+        sb.append("Vagas de Interesse: $vagasInteresse\n")
+
+        return sb.toString()
     }
 }
 
@@ -51,39 +75,26 @@ class MesDoc(
     override val celular: String?,
     override val sexo: Sexo,
     override val dataNasc: LocalDate,
+    override val vagasInteresse : String,
     val anoConclusao: Int,
     val instituicao: String,
     val monografia: String,
     val orientador: String
 ): Pessoa{
     override fun toString(): String {
-        return "MesDoc(nome='$nome', email='$email', telefone='$telefone', tipoFone=$tipoFone, celular=$celular, sexo=$sexo, dataNasc=$dataNasc, anoConclusao=$anoConclusao, instituicao='$instituicao', monografia='$monografia', orientador='$orientador')"
+        val sb = java.lang.StringBuilder()
+        sb.append("Nome: $nome\n")
+        sb.append("Email: $email\n")
+        sb.append("Telefone: $telefone ($tipoFone)\n")
+        sb.append("Celular: $celular\n")
+        sb.append("Sexo: $sexo\n")
+        sb.append("Nascimento: $dataNasc\n")
+        sb.append("Ano Conclusão: $anoConclusao\n")
+        sb.append("Instituição: $instituicao\n")
+        sb.append("Título da Monografia: $monografia\n")
+        sb.append("Orientador: $orientador\n")
+        sb.append("Vagas de Interesse: $vagasInteresse\n")
+
+        return sb.toString()
     }
 }
-
-
-
-
-
-
-
-
-
-
-//open class Pessoa (
-//    nome: String, email: String, telefone: String,
-//    tipoFone: TipoTelefone, celular : String? = null, sexo: Sexo
-//) {
-//    override fun equals(other: Any?): Boolean {
-//        if (this === other) return true
-//        if (javaClass != other?.javaClass) return false
-//        return true
-//    }
-//
-//    override fun hashCode(): Int {
-//        return javaClass.hashCode()
-//    }
-//
-//}
-//
-//class FunMed()
