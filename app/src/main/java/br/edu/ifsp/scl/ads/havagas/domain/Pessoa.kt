@@ -9,7 +9,7 @@ interface Pessoa {
     val tipoFone: TipoTelefone
     val celular : String?
     val sexo: Sexo
-    val dataNasc: LocalDate
+    val dataNasc: LocalDate?
     val vagasInteresse : String
 }
 
@@ -20,7 +20,7 @@ class FunMed(
     override val tipoFone: TipoTelefone,
     override val celular: String?,
     override val sexo: Sexo,
-    override val dataNasc: LocalDate,
+    override val dataNasc: LocalDate?,
     override val vagasInteresse : String,
     val anoFormatura: Int
 ) : Pessoa{
@@ -46,7 +46,7 @@ class GraEsp(
     override val tipoFone: TipoTelefone,
     override val celular: String?,
     override val sexo: Sexo,
-    override val dataNasc: LocalDate,
+    override val dataNasc: LocalDate?,
     override val vagasInteresse : String,
     val anoConclusao: Int,
     val instituicao: String
@@ -74,7 +74,7 @@ class MesDoc(
     override val tipoFone: TipoTelefone,
     override val celular: String?,
     override val sexo: Sexo,
-    override val dataNasc: LocalDate,
+    override val dataNasc: LocalDate?,
     override val vagasInteresse : String,
     val anoConclusao: Int,
     val instituicao: String,
